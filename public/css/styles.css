@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-  background-color: #5D1049;
+  background-color: #0A2E36;
   color: white;
   padding: 20px;
   text-align: center;
@@ -19,7 +19,7 @@ body {
 }
 
 .nav {
-  background-color: #7A1E74;
+  background-color: #0A2E36;
   overflow: hidden;
 }
 
@@ -59,7 +59,7 @@ body {
 
 
 .footer {
-  background-color: #5D1049;
+  background-color: #0A2E36;
   color: white;
   text-align: center;
   padding: 10px;
@@ -72,7 +72,7 @@ body {
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 0.5;
   }
 
   to {
@@ -82,5 +82,9 @@ body {
 
 .fadeIn {
   animation-name: fadeIn;
-  animation-duration: 2s;
+  animation-duration: 1s;
+}
+.nav {
+  animation-name: fadeIn;
+animation-duration: 1s;
 }
