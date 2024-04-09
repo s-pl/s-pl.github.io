@@ -33,7 +33,7 @@ body {
 }
 
 .nav a:hover {
-  background-color: #a832a0;
+  opacity: 0.5;
 }
 
 .section {
