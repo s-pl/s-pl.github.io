@@ -7,12 +7,12 @@ body {
   background-color: #f9f9f9;
   color: #0A2E36;
   overflow-x: hidden;
-  scrollbar-width: none; 
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
 body::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .header {
@@ -38,6 +38,7 @@ body::-webkit-scrollbar {
   justify-content: center;
   padding: 10px 0;
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  transition: max-height 0.3s;
 }
 
 .nav a {
@@ -69,6 +70,15 @@ body::-webkit-scrollbar {
 
 .nav a:hover::after {
   width: 100%;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .section {
@@ -127,7 +137,7 @@ ul li a:hover {
   border-radius: 15px;
   border: 1px solid #e0e0e0;
   padding: 20px;
-  width: calc(33.333% - 20px); 
+  width: calc(33.333% - 20px);
   box-sizing: border-box;
   background: white;
   transition: transform 0.5s, box-shadow 0.5s;
@@ -146,11 +156,11 @@ ul li a:hover {
 }
 
 .skill-card img {
-  width: 100px; 
+  width: 100px;
   height: 100px;
-  object-fit: contain; 
+  object-fit: contain;
   margin-bottom: 15px;
-  display: block; 
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
@@ -173,7 +183,7 @@ ul li a:hover {
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  
+
 }
 
 .footer p {
@@ -199,8 +209,19 @@ ul li a:hover {
   .project-card, .skill-card, .repo-card {
     width: calc(50% - 20px);
   }
+
   .nav {
     flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav.open {
+    max-height: 500px; /* Adjust as needed */
   }
 }
 
@@ -208,33 +229,89 @@ ul li a:hover {
   .project-card, .skill-card, .repo-card {
     width: 100%;
   }
+
   .nav a {
     padding: 12px 0;
     font-size: 1em;
   }
+
   .section {
     margin: 20px 10px;
     padding: 20px;
   }
 }
+
 #scrollToTopBtn {
-  display: none; 
-  position: fixed; 
-  bottom: 20px; 
+  display: none;
+  position: fixed;
+  bottom: 20px;
   right: 20px;
-  z-index: 99; 
-  font-size: 18px; 
-  border: none; 
+  z-index: 99;
+  font-size: 18px;
+  border: none;
   outline: none;
-  background-color: #0A2E36; 
+  background-color: #0A2E36;
   color: white;
-  cursor: pointer; 
-  padding: 15px; 
-  border-radius: 10px; 
-  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #scrollToTopBtn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #333;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
+}
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgba(5, 5, 5, 0.5);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
+}
+.cta span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #111;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+.cta:hover:before {
+  width: 100%;
+  background: rgba(5, 5, 5, 0.5);
+}
+.cta:hover svg {
+  transform: translateX(0);
+}
+.cta:active {
+  transform: scale(0.96);
 }
